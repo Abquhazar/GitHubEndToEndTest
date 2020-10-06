@@ -1,0 +1,15 @@
+Hi Evan,
+
+Here's the information on the coding challenge. We'd love it if you were able to complete this on or by this following Tuesday (10/13), but let me know what is realistic. We appreciate your time and effort on this in advance!!
+
+As part of our interview process, we ask that you complete a sample coding assessment.  
+
+The goal of the assessment is to create an end-to-end test script for the GitHub login page (https://github.com/login). You may use any JavaScript test framework, but WebdriverIO is preferred: https://webdriver.io/docs/gettingstarted.html
+
+Please make your code available in a public GitHub repository so that we can access it. If you are unfamiliar with setting up a git repository, please refer to this guide: https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/create-a-repo
+
+Feel free to reach out to us with questions if you need clarification on anything -- and happy coding!
+
+Best,
+
+Dana
