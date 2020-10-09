@@ -4,12 +4,13 @@ var assert = require('assert');
 
 describe('GitHub login test', function() {
 	var username = "evannotarizetest";
-	var password = new String();
+	var password = "NotarizeTest123$$"
 
-	/*
-		this logout function is also a test.... but due to its reusable nature, I have it listed as a function
-	*/
+
 	function logOut() {
+	/*
+	*this logout function is also a test.... but due to its reusable nature, I have created a function out of it
+	*/
 		it('should log the user out', function() {
 			browser.url('https://github.com/');
 			$('//summary/span[2]').click();
@@ -18,13 +19,15 @@ describe('GitHub login test', function() {
 		});
 	 } 
 
+	 
+
 	//Test Case 1 - login with credentials:
 	it('should login with credentials', function() {
 		browser.url('https://github.com/login');
 		$('#login_field').click();
 		$('#login_field').setValue(username);
 		$('#password').click();
-		$('#password').setValue('NotarizeTest123$$');
+		$('#password').setValue(password);
 		$('[name="commit"]').click();
 		browser.pause(3000); //webdriverIO has the capacity to know when the browser is done loading... still looking into this
 		expect( $('=About')).toHaveTextContaining(`About`); //searching for this text will verify that the page has loaded.
@@ -72,8 +75,14 @@ describe('GitHub login test', function() {
 		expect( $('//h1')).toHaveTextContaining(`Built for developers`);
 	}); 
 
-	//Test Case 6 - Forgot password check:
+	
 
+	//Test Case 6 - Forgot password check:
+	it('should check if the forgot password page is functioning', function() {
+		browser.url('https://github.com/login');
+		$('/html/body/div[3]/main/div/form/div[4]/label[2]/a').click();
+		expect( $('/html/body/div[3]/main/div/form/div[1]/h1')).toHaveTextContaining(`Reset your password`);
+	});
 
 
 	/*
@@ -94,6 +103,7 @@ describe('GitHub login test', function() {
 		$('#signup_button').click();
 		expect( $('//main[@id="js-pjax-container"]/div[2]/div/h1')).toHaveTextContaining(`Welcome to GitHub`);
 	}); */
+	
 	
 
 	//Test Case 8 - Account has already been created
@@ -130,5 +140,5 @@ describe('GitHub login test', function() {
 		browser.url('https://github.com/login');
 		$('=Contact GitHub').click();
 		expect( $('//h1')).toHaveTextContaining(`What can we help with?`);
-	});
+	}); 
 });
