@@ -70,7 +70,7 @@ describe('GitHub login test', function() {
 		browser.url('https://github.com/login');
 		$('/html/body/div[1]/div[2]/div/a').click();
 		expect( $('//h1')).toHaveTextContaining(`Built for developers`);
-	});
+	}); 
 
 	//Test Case 6 - Forgot password check:
 
@@ -101,8 +101,7 @@ describe('GitHub login test', function() {
 		browser.url('https://github.com/join?source=login');
 		$('#user_login').click();
 		$('#user_login').setValue(username);
-		$('/html/body/div[4]/main/div/div[2]/div/form/auto-check[1]/dl/dd[2]/div/div[1]').click();
-		//expect( $('/html/body/div[4]/main/div/div[2]/div/form/auto-check[1]/dl/dd[2]/div/div[1]')).toHaveTextContaining('Username' + username + ' is not available.');
+		expect( $('/html/body/div[4]/main/div/div[2]/div/form/auto-check[1]/dl/dd[2]/div/div[1]')).toHaveTextContaining('Username ' + username + ' is not available.');
 	});
 
 	//Test Case 9 - Terms:
