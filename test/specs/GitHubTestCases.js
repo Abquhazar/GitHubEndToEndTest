@@ -9,7 +9,8 @@ describe('GitHub login test', function() {
 
 	function logOut() {
 	/*
-	*this logout function is also a test.... but due to its reusable nature, I have created a function out of it
+	*this logout function is also a test.... but due to its reusable nature, 
+	I have created a function out of it/
 	*/
 		it('should log the user out', function() {
 			browser.url('https://github.com/');
@@ -17,9 +18,7 @@ describe('GitHub login test', function() {
 			$('(//button[@type=\'submit\'])[3]').click();
 			expect( $('//h1')).toHaveTextContaining(`Built for developers`);
 		});
-	 } 
-
-	 
+	} 
 
 	//Test Case 1 - login with credentials:
 	it('should login with credentials', function() {
@@ -85,27 +84,15 @@ describe('GitHub login test', function() {
 	});
 
 
-	/*
-	Test Case 7 - Create an Account:
-
-	The biggest issue with the next test is attempting to solve a captcha...
-	it('should create a new account', function() {
+	
+	//Test Case 7 - Create an Account is running:
+	it('should do something', function() {
 		browser.url('https://github.com/login');
 		$('=Create an account').click();
-		$('#user_login').setValue('NotarizeTest123');
-		$('#user_email').click();
-		$('#user_email').setValue('NotarizeTest123@gmail.com');
-		$('#user_password').click();
-		$('#user_password').setValue('test123$$');
-		$('#all_emails').click();
-		$('#home_children_button').click();
-		$('//div[@id="game_children_challenge"]/div/a[4]').click();
-		$('#signup_button').click();
-		expect( $('//main[@id="js-pjax-container"]/div[2]/div/h1')).toHaveTextContaining(`Welcome to GitHub`);
-	}); */
+		expect( $('//h1')).toHaveTextContaining(`Create your account`);
+	});
 	
 	
-
 	//Test Case 8 - Account has already been created
 	it('should check if an account is already created', function() {
 		browser.url('https://github.com/join?source=login');
