@@ -10,13 +10,14 @@ describe('GitHub login test', function() {
 	function logOut() {
 	/*
 	*this logout function is also a test.... but due to its reusable nature, 
-	I have created a function out of it/
+	*I have created a function out of it
 	*/
 		it('should log the user out', function() {
 			browser.url('https://github.com/');
 			$('//summary/span[2]').click();
 			$('(//button[@type=\'submit\'])[3]').click();
-			expect( $('//h1')).toHaveTextContaining(`Built for developers`);
+			browser.pause(2000);
+			expect(browser).toHaveUrl('https://github.com/')
 		});
 	} 
 
@@ -33,7 +34,7 @@ describe('GitHub login test', function() {
 	});
 	
 	logOut();
-	
+
 	//Test Case 2 - login with no credentials:
     it('should attempt to login with no credentials', function(){
         browser.url('https://github.com/login');
@@ -71,10 +72,8 @@ describe('GitHub login test', function() {
 	it('should check to see if the GitHub Logo brings the user back to the homepage', function() {
 		browser.url('https://github.com/login');
 		$('/html/body/div[1]/div[2]/div/a').click();
-		expect( $('//h1')).toHaveTextContaining(`Built for developers`);
+		expect(browser).toHaveUrl('https://github.com/')
 	}); 
-
-	
 
 	//Test Case 6 - Forgot password check:
 	it('should check if the forgot password page is functioning', function() {
@@ -83,8 +82,6 @@ describe('GitHub login test', function() {
 		expect( $('/html/body/div[3]/main/div/form/div[1]/h1')).toHaveTextContaining(`Reset your password`);
 	});
 
-
-	
 	//Test Case 7 - Create an Account is running:
 	it('should do something', function() {
 		browser.url('https://github.com/login');
