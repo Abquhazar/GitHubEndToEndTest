@@ -1,25 +1,8 @@
-var assert = require('assert');
-
 // run the test suite with npx wdio wdio.conf.js
 
 describe('GitHub login test', function() {
 	var username = "evannotarizetest";
 	var password = "NotarizeTest123$$"
-
-
-	function logOut() {
-	/*
-	*this logout function is also a test.... but due to its reusable nature, 
-	*I have created a function out of it
-	*/
-		it('should log the user out', function() {
-			browser.url('https://github.com/');
-			$('//summary/span[2]').click();
-			$('(//button[@type=\'submit\'])[3]').click();
-			browser.pause(2000);
-			expect(browser).toHaveUrl('https://github.com/')
-		});
-	} 
 
 	//Test Case 1 - login with credentials:
 	it('should login with credentials', function() {
@@ -125,4 +108,18 @@ describe('GitHub login test', function() {
 		$('=Contact GitHub').click();
 		expect( $('//h1')).toHaveTextContaining(`What can we help with?`);
 	}); 
+
+	function logOut() {
+		/*
+		*this logout function is also a test.... but due to its reusable nature, 
+		*I have created a function out of it
+		*/
+			it('should log the user out', function() {
+				browser.url('https://github.com/');
+				$('//summary/span[2]').click();
+				$('(//button[@type=\'submit\'])[3]').click();
+				browser.pause(2000);
+				expect(browser).toHaveUrl('https://github.com/')
+			});
+		} 
 });
